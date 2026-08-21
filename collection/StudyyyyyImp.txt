@@ -1,0 +1,503 @@
+Function overloading interview Question
+___________________________________________________________________________
+1.	What is function overloading (method overloading) in Java?
+2.	Why do we use method overloading in Java? What are its advantages?
+3.	On what basis does Java differentiate between overloaded methods?
+4.	Can we overload a method by changing only its return type? Why or why not?
+5.	Can we overload the main () method in Java? If yes, how does it work?
+6.	What is the difference between method overloading and method overriding?
+7.	Can static methods be overloaded in Java? Explain your answer.
+8.	Can constructors be overloaded in Java? If yes, why is constructor overloading useful?
+9.	How does the Java compiler decide which overloaded method to call when multiple methods match the arguments?
+10.	What happens if there is ambiguity between overloaded methods? Can you give an example scenario where the compiler throws an error?
+/*Constructor Interview Question 
+_________________________________________________________________________________
+Basic Level Questions
+1.	What is a constructor in Java?
+2.	Why do we use constructors in Java?
+3.	What are the characteristics of a constructor?
+4.	When is a constructor automatically called?
+5.	What is the difference between a constructor and a method?
+6.	Can a constructor have a return type? Why or why not?
+7.	Can a constructor be declared as static, final, or abstract? Why?
+8.	What happens if we do not write any constructor in a class?
+9.	What is a default constructor in Java?
+10.	What is a no-argument constructor?
+________________________________________
+Intermediate Level Questions
+11.	What is a parameterized constructor?
+12.	What is constructor overloading? Why is it useful?
+13.	Can constructors be overloaded? Explain with a real-world example.
+14.	Can constructors be inherited in Java? Why or why not?
+15.	Can a constructor be private? If yes, where is it used in real-world applications?
+16.	What is constructor chaining?
+17.	What is the difference between this() and super() in constructors?
+18.	Why must this() or super() be the first statement inside a constructor?
+________________________________________
+Advanced Level Questions
+19.	What happens if a parent class has only a parameterized constructor and the child class does not explicitly call super()?
+20.	In what scenarios do frameworks like Spring and Hibernate require a default (no-argument) constructor?
+________________________________________
+/*Interview Question on classes and objects
+___________________________________________________________________________
+Class and Object
+1.	What is a class in Java?
+2.	What is an object in Java?
+3.	What is the difference between a class and an object?
+4.	Why do we create objects in Java?
+5.	Where are objects stored in memory, and where are local variables stored?
+6.	Can a class exist without an object? Can an object exist without a class? Explain.
+________________________________________
+Static Variable
+7.	What is a static variable in Java?
+8.	Why do we use static variables?
+9.	What is the difference between a static variable and an instance variable?
+10.	How many copies of a static variable are created if we create 100 objects of a class?
+11.	Can we access a static variable without creating an object? If yes, how?
+12.	In which memory area are static variables stored?
+________________________________________
+Instance Variable
+13.	What is an instance variable in Java?
+14.	Why does every object have its own copy of an instance variable?
+15.	When is an instance variable created and destroyed?
+16.	Can an instance variable be accessed directly inside a static method? Why or why not?
+________________________________________
+Variable Arguments (Varargs)
+17.	What are variable arguments (varargs) in Java, and why are they used?
+18.	What are the rules and restrictions while using variable arguments in a method declaration?
+19.	What is the difference between an array parameter and a variable argument parameter?
+________________________________________
+POJO Class
+20.	What is a POJO (Plain Old Java Object) class? What are the characteristics of a POJO class, and why is it widely used in frameworks like Spring and Hibernate?
+________________________________________
+Encapsulation
+21.	What is encapsulation in Java?
+22.	Why do we make instance variables private in encapsulation?
+23.	What are getters and setters, and why are they important?
+24.	What are the advantages of encapsulation in real-world software development?
+25.	Can a class be considered encapsulated if all its variables are public? Why or why not?
+
+
+Programming Question 
+___________________________________________________________________
+11. Count the occurrences of a particular character.
+12. Find the first occurrence of a character.
+13. Find the last occurrence of a character.
+14. Remove all white spaces from a string.
+15. Count the number of words in a sentence.
+16. Find the ASCII value of each character.
+17. Replace all spaces with hyphens.
+18. Compare two strings without using `equals()`.
+19. Check whether two strings are equal.
+20. Concatenate two strings without using `concat()`.
+____________________________________________________________________________________
+
+.	What is polymorphism in Java?
+2.	Why do we use polymorphism in Object-Oriented Programming?
+3.	What are the different types of polymorphism in Java?
+4.	What is the difference between Compile-Time Polymorphism and Runtime Polymorphism?
+5.	How is method overloading an example of Compile-Time Polymorphism?
+6.	How is method overriding an example of Runtime Polymorphism?
+7.	What is Upcasting, and how is it related to Runtime Polymorphism?
+8.	Can we achieve Runtime Polymorphism without inheritance? Why or why not?
+9.	Which methods cannot participate in Runtime Polymorphism and why? (For example: static, final, and private methods.)
+10.	What are the advantages of polymorphism in real-world software development?
+________________________________________
+Bonus Questions for Practice
+11.	What is Dynamic Method Dispatch in Java?
+12.	Why is Runtime Polymorphism also called Dynamic Binding or Late Binding?
+13.	Can constructors be overridden? Why or why not?
+14.	Can a static method be overridden? Why or why not?
+15.	What is the difference between method hiding and method overriding?
+16.	Can an abstract class participate in polymorphism? Explain.
+17.	Can an interface be used to achieve polymorphism? How?
+18.	What is the difference between:
+Parent p = new Child();
+Child c = new Child();
+19.	Which variables and methods are accessible through a parent reference object?
+20.	In Spring Framework, where is polymorphism used in real-world applications?
+
+
+Programming Question 
+_______________________________________________________________________________
+31. Remove all vowels from a string.
+32. Count uppercase and lowercase letters separately.
+33. Toggle the case of each character.
+34. Convert the first character to uppercase.
+35. Find the frequency of every character in a string.
+36. Reverse each word in a sentence.
+37. Reverse the order of words in a sentence.
+38. Check whether two strings are anagrams.
+39. Find duplicate characters in a string.
+40. Find non-repeated characters in a string.
+____________________________________________________________________________________________
+dayy 5
+rray Interview Questions
+1.	What is an array?
+2.	Why do we use arrays in programming?
+3.	What are the advantages and disadvantages of arrays?
+4.	How is memory allocated for an array?
+5.	What is the difference between an array and an ArrayList in Java?
+6.	How do you find the length of an array?
+7.	What is the default value of array elements in Java?
+8.	How do you insert an element into an array?
+9.	How do you delete an element from an array?
+10.	What is the time complexity of searching an element in an unsorted array?
+11.	What is the difference between a one-dimensional array and a two-dimensional array?
+12.	How do you reverse an array without using another array?
+13.	How do you find the largest and smallest elements in an array?
+14.	How do you remove duplicate elements from an array?
+15.	What is the difference between shallow copy and deep copy of an array?
+Stack Interview Questions
+16.	What is a stack data structure?
+17.	Why is a stack called a LIFO (Last In, First Out) data structure?
+18.	What are the basic operations of a stack?
+19.	What is Stack Overflow?
+20.	What is Stack Underflow?
+21.	How can a stack be implemented using an array?
+22.	How can a stack be implemented using a linked list?
+23.	What is the time complexity of Push and Pop operations?
+24.	What are some real-world applications of stacks?
+25.	How is recursion related to a stack?
+26.	How do you check whether parentheses are balanced using a stack?
+
+Programming Question 
+41. Find the first non-repeated character.
+42. Find the first repeated character.
+43. Remove duplicate characters from a string.
+44. Find the maximum occurring character.
+45. Find the minimum occurring character.
+46. Count the frequency of each word in a sentence.
+47. Sort characters in a string alphabetically.
+48. Sort words in a sentence alphabetically.
+49. Count the number of sentences in a paragraph.
+50. Find the longest word in a sentence.*/
+____________________________________________________________________________________________
+day 6 
+Queue Interview Questions
+27.	What is a queue data structure?
+28.	Why is a queue called a FIFO (First In, First Out) data structure?
+29.	What are the basic operations of a queue?
+30.	What is Queue Overflow?
+31.	What is Queue Underflow?
+32.	How can a queue be implemented using an array?
+33.	How can a queue be implemented using a linked list?
+34.	What is the time complexity of Enqueue and Dequeue operations?
+35.	What are the real-world applications of queues?
+36.	What is the difference between a stack and a queue?
+Circular Queue Interview Questions
+37.	What is a circular queue?
+38.	Why do we need a circular queue?
+39.	What problem in a normal queue is solved by a circular queue?
+40.	What are the conditions for Circular Queue Overflow and Underflow?
+41.	How do you perform insertion in a circular queue?
+42.	How do you perform deletion in a circular queue?
+43.	What is the role of the modulo (%) operator in a circular queue?
+44.	What are the applications of circular queues in software development?
+45.	What is the difference between a normal queue and a circular queue?
+Bubble Sort Interview Questions
+46.	What is Bubble Sort?
+47.	Why is it called Bubble Sort?
+48.	Explain the working of Bubble Sort with an example.
+49.	What is the time complexity of Bubble Sort in the best, average, and worst cases?
+50.	What is the space complexity of Bubble Sort?
+51.	Is Bubble Sort a stable sorting algorithm? Why?
+52.	Can Bubble Sort be optimized? How?
+53.	How many passes are required to sort an array of n elements using Bubble Sort?
+54.	What is the biggest disadvantage of Bubble Sort?
+55.	In which situations would you use Bubble Sort?
+
+Programming Question 
+______________________________________________________________________
+51. Find the shortest word in a sentence.
+52. Check whether one string is a rotation of another.
+53. Check whether a string is a pangram.
+54. Print all substrings of a string.
+55. Print all prefixes of a string.
+56. Print all suffixes of a string.
+57. Find the longest substring without repeating characters.
+58. Find the longest palindromic substring.
+59. Find the shortest substring containing all characters of another string.
+60. Find all palindromic substrings.
+_________________________________________________________________________________________________
+
+day7 
+
+/*
+Selection Sort Interview Questions
+56.	What is Selection Sort?
+57.	Explain the working of Selection Sort with an example.
+58.	Why is it called Selection Sort?
+59.	What is the time complexity of Selection Sort?
+60.	What is the space complexity of Selection Sort?
+61.	Is Selection Sort a stable sorting algorithm? Why or why not?
+62.	How many swaps occur in Selection Sort?
+63.	What is the difference between Bubble Sort and Selection Sort?
+64.	Why is Selection Sort generally preferred over Bubble Sort when memory writes are expensive?
+65.	In which situations would you use Selection Sort?
+Scenario-Based Questions
+66.	In a browser's Back and Forward functionality, which data structure would you use and why?
+67.	In a printer job scheduling system, which data structure would you use and why?
+68.	In a music playlist that continuously repeats songs, which data structure would you use and why?
+69.	If you need to store marks of 1000 students, which data structure would you use and why?
+70.	If you need to sort a small list of numbers and the number of swaps should be minimal, which sorting algorithm would you choose and why?
+
+Programming Question 
+61. Count all palindromic substrings.
+62. Find the number of occurrences of a substring.
+63. Replace all occurrences of one substring with another.
+64. Check whether a string starts with a given prefix.
+65. Check whether a string ends with a given suffix.
+66. Find the common prefix of two strings.
+67. Find the longest common prefix among multiple strings.
+68. Convert a sentence into camelCase.
+69. Convert camelCase into a normal sentence.
+70. Convert a sentence into snake_case.
+*/_____________________________________________________________________________________________________
+day 8
+
+
+Functions 
+1.	What is a function (method) in programming, and why do we use it?
+2.	What are the advantages of using functions in software development?
+3.	What is the difference between a function declaration, definition, and function call?
+4.	What are the different types of functions based on parameters and return values?
+5.	What is the difference between passing parameters by value and by reference?
+6.	What is the difference between an argument and a parameter?
+7.	What are pure functions, and why are they important in software development?
+________________________________________
+Recursion 
+8.	What is recursion, and how does it work internally?
+9.	What is the base case in recursion, and why is it important?
+10.	What happens if a recursive function does not have a base case?
+11.	What is the difference between recursion and iteration?
+12.	What is the time and space complexity of a recursive function?
+13.	What is tail recursion, and why is it considered more efficient?
+14.	In which real-world scenarios would you prefer recursion over iteration?
+________________________________________
+Dynamic Programming 
+15.	What is Dynamic Programming (DP)?
+16.	What are the two main properties required to apply Dynamic Programming?
+17.	What is the difference between recursion and Dynamic Programming?
+18.	What is the difference between Memoization and Tabulation?
+19.	How can you identify whether a problem can be solved using Dynamic Programming?
+20.	Why is Dynamic Programming usually faster than a simple recursive solution?
+________________________________________
+Scenario-Based Questions
+21.	In a file system, folders can contain subfolders within subfolders. Which concept would you use to traverse all folders: iteration or recursion? Why?
+22.	A company wants to calculate the number of ways to climb a staircase where a person can take either one or two steps at a time. Why is Dynamic Programming a better approach than simple recursion?
+23.	In a navigation system, you need to find the minimum cost path between cities while reusing previously computed results. Which technique would you choose and why?
+24.	In a payroll system, the salary calculation logic is repeated in multiple modules. How can functions help improve maintainability and code reuse?
+25.	You have a recursive solution for calculating Fibonacci numbers, but it becomes very slow for large inputs. How would Dynamic Programming improve the performance?
+
+Programming Question 
+_________________________________________________________________________
+71. Implement your own version of `String.equals()`.
+72. Implement your own version of `String.compareTo()`.
+73. Implement your own version of `String.indexOf()`.
+74. Implement your own version of `String.substring()`.
+75. Implement string compression (Example: aaabbcc → a3b2c2).
+76. Decompress a compressed string.
+77. Implement Run Length Encoding (RLE).
+78. Find all permutations of a string.
+79. Find all combinations of characters in a string.
+80. Find all subsequences of a string.
+
+__________________________________________________________________________________________________________
+day 9
+
+
+/*String Interview Questions
+1.	What is a String in Java?
+2.	Why are String objects immutable in Java?
+3.	What is the difference between:
+4.	String s1 = "Java";
+5.	String s2 = new String("Java");
+6.	What is the String Constant Pool (SCP)?
+7.	What is the difference between == and equals() when comparing strings?
+8.	Why is String declared as final in Java?
+9.	What happens internally when we write:
+10.	String s = "Hello" + "Java";
+11.	What is the difference between concat() and + operator for strings?
+12.	What are some commonly used methods of the String class?
+13.	What is the difference between substring() and subSequence()?
+14.	How can you reverse a string in Java?
+15.	What is the difference between charAt() and indexOf()?
+________________________________________
+StringBuffer Interview Questions
+13.	What is StringBuffer in Java?
+14.	Why do we use StringBuffer instead of String?
+15.	Why is StringBuffer mutable?
+16.	Is StringBuffer thread-safe? Explain.
+17.	What are the commonly used methods of StringBuffer?
+18.	In which scenarios would you prefer StringBuffer over StringBuilder?
+________________________________________
+StringBuilder Interview Questions
+19.	What is StringBuilder in Java?
+20.	What is the difference between StringBuffer and StringBuilder?
+________________________________________
+Bonus Questions for Practice
+21.	What is the difference between String, StringBuffer, and StringBuilder?
+22.	Which class should be used for string manipulation in a multi-threaded application and why?
+23.	Which class provides better performance: StringBuffer or StringBuilder? Why?
+24.	Why is repeated string concatenation using String considered inefficient?
+25.	What happens internally when we write:
+String s = s + "Java";
+26.	Can StringBuffer and StringBuilder objects be compared using equals()? Why?
+27.	What is the default capacity of StringBuffer and StringBuilder?
+28.	What happens when the capacity of StringBuffer or StringBuilder is exceeded?
+29.	How can you convert:
+•	String → StringBuffer
+•	String → StringBuilder
+•	StringBuffer → String
+•	StringBuilder → String
+30.	In a real-world software project, when would you choose String, StringBuffer, and StringBuilder?
+__________________________________________________________________________________________________________
+
+day 10
+
+/*Interview Question on Time Complexity 
+Basic Level Questions
+1.	What is Time Complexity?
+2.	Why do we analyze the time complexity of an algorithm?
+3.	What is Big-O Notation?
+4.	What is the difference between Time Complexity and Space Complexity?
+5.	What is the time complexity of accessing an element in an array?
+6.	What is the time complexity of searching an element in an unsorted array?
+7.	What is the time complexity of searching an element in a sorted array using Binary Search?
+8.	What is the difference between:
+o	O(1)
+o	O(log n)
+o	O(n)
+o	O(n²)
+9.	Which is better: O(n) or O(log n)? Why?
+10.	What is the time complexity of traversing an array of size n?
+________________________________________
+Intermediate Level Questions
+11.	Find the time complexity of the following code:
+for(int i = 0; i < n; i++) {
+    System.out.println(i);
+}
+________________________________________
+12.	Find the time complexity of:
+for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+        System.out.println(i + " " + j);
+    }
+}
+________________________________________
+13.	Find the time complexity of:
+for(int i = 1; i < n; i = i * 2) {
+    System.out.println(i);
+}
+________________________________________
+14.	Find the time complexity of:
+for(int i = n; i > 0; i = i / 2) {
+    System.out.println(i);
+}
+________________________________________
+15.	What is the time complexity of insertion and deletion in an array?
+16.	What is the time complexity of Push and Pop operations in a Stack?
+17.	What is the time complexity of Enqueue and Dequeue operations in a Queue?
+18.	What is the time complexity of Bubble Sort in the best, average, and worst cases?
+19.	What is the time complexity of Selection Sort?
+20.	What is the time complexity of Binary Search and why?
+________________________________________
+Advanced Level Questions
+21.	Find the time complexity of:
+for(int i = 0; i < n; i++) {
+    for(int j = 1; j < n; j = j * 2) {
+        System.out.println(i + " " + j);
+    }
+}
+________________________________________
+22.	Find the time complexity of:
+for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= i; j++) {
+        System.out.println(i + " " + j);
+    }
+}
+________________________________________
+23.	Find the time complexity of the recursive function:
+fun(n) {
+    if(n == 0)
+        return;
+    fun(n - 1);
+}
+________________________________________
+24.	Find the time complexity of the recursive function:
+fun(n) {
+    if(n <= 1)
+        return;
+    fun(n / 2);
+}
+________________________________________
+25.	Find the time complexity of the recursive function:
+fun(n) {
+    if(n <= 1)
+        return;
+    fun(n - 1);
+    fun(n - 1);
+}
+
+Programming Question 
+91. Find the minimum window substring.
+92. Group all anagrams from an array of strings.
+93. Count the number of distinct substrings.
+94. Find the lexicographically smallest rotation of a string.
+95. Find the lexicographically largest substring.
+96. Check whether a string can be rearranged to form a palindrome.
+97. Implement the KMP (Knuth-Morris-Pratt) string matching algorithm.
+98. Implement the Rabin-Karp string matching algorithm.
+99. Implement the Trie data structure for string searching.
+100. Implement an autocomplete system using Trie and strings.
+Scenario-Based Questions
+26.	You need to search a customer by ID from one million sorted records. Which algorithm would you choose and why?
+27.	A report generation feature is taking too much time because it uses three nested loops. How would you analyze and improve its time complexity?
+28.	In an e-commerce application, product search is becoming slow as the number of products increases. Why is time complexity important in this situation?
+29.	Why is an algorithm with O(log n) complexity preferred over O(n) for large datasets?
+30.	In a social media application with millions of users, why is choosing an efficient algorithm critical?*/
+-________________________________________________________________-________________________________________
+
+day 11 
+/*JDK, JRE, and JVM Questions
+1.	What is the JDK in Java?
+2.	What is the JRE in Java?
+3.	What is the JVM in Java?
+4.	What is the difference between JDK, JRE, and JVM?
+5.	Why is Java called a Platform Independent language?
+6.	What is bytecode, and who generates it?
+7.	What is the role of the Java Compiler (javac)?
+8.	What is the role of the Class Loader in the JVM?
+9.	What are the different memory areas of the JVM?
+10.	What is the difference between a .java file, a .class file, and bytecode?
+________________________________________
+Data Type Questions
+11.	What is a data type in Java, and why do we need it?
+12.	What are the two categories of data types in Java?
+13.	What are the eight primitive data types in Java?
+14.	What is the size and range of each primitive data type in Java?
+15.	What is the difference between primitive data types and non-primitive data types?
+16.	What is type casting, and what are its types in Java?
+17.	What is the difference between implicit type casting and explicit type casting?
+________________________________________
+Operator Questions
+18.	What are operators in Java, and what are the different types of operators?
+19.	What is the difference between:
+•	== and =
+•	&& and &
+•	|| and |
+•	++i and i++
+20.	What is the difference between the instanceof operator and the == operator?
+________________________________________
+Bonus Questions for Practice
+21.	Why does Java use Unicode characters?
+22.	Why is the size of char in Java 2 bytes?
+23.	Why is boolean not defined with a specific memory size in Java?
+24.	What happens if we assign a larger data type value to a smaller data type variable?
+25.	What is operator precedence and associativity in Java?
+26.	Why does 5 / 2 produce a different result from 5.0 / 2?
+27.	What is the difference between arithmetic operators and relational operators?
+28.	Can we overload operators in Java? Why or why not?
+29.	Why is the String concatenation operator (+) considered special in Java?
+30.	What is the difference between short-circuit operators (&&, ||) and normal logical operators (&, |)?*/
