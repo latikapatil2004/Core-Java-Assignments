@@ -1,0 +1,11 @@
+/*
+
+Q13. Write a java program to print this pattern.
+* * * * *
+* * * * #
+* * * # #
+* * # # #
+* # # # #
+
+
+*/
