@@ -9,5 +9,22 @@ Output: [5, 6]*/
 
 class Array11
 {
-   p
+   public static void main(String[]args)
+   {
+	   int arr[]={0, 1, 3, 4};
+	   int n=4;
+	   boolean seen[]=new boolean[n+1];
+	   for(int i=0;i<arr.length;i++)
+	   {
+		   seen[arr[i]]=true;
+	   }
+	   for(int i=0;i<=n;i++)
+	   {
+		   if(!seen[i])
+		   {
+			   System.out.println(i);
+		   }
+	   }
+	   
+   }
 }
