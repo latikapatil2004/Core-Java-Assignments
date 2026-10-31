@@ -1,0 +1,866 @@
+t: {B=10, C=20, A=30}
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 30);
+        map.put("B", 10);
+        map.put("C", 20);
+
+        Map<String, Integer> result = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue())
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (a, b) -> a,
+                LinkedHashMap::new
+            ));
+
+        System.out.println(result);
+    }
+}
+
+
+Key concept: LinkedHashMap preserves the order in which the sorted entries are inserted.
+Q12. Merge two maps and add values for duplicate keys
+Input:
+- Map 1: {A=10, B=20}
+- Map 2: {B=30, C=40}
+Output: {A=10, B=50, C=40}
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> map1 = new HashMap<>();
+        map1.put("A", 10);
+        map1.put("B", 20);
+
+        Map<String, Integer> map2 = new HashMap<>();
+        map2.put("B", 30);
+        map2.put("C", 40);
+
+        map2.forEach((key, value) ->
+            map1.merge(key, value, Integer::sum)
+        );
+
+        System.out.println(map1);
+    }
+}
+
+
+Key concept: Map.merge() inserts a missing key or combines its existing value with the new value.
+
+3. Collection Framework Conceptual Interview Questions
+These questions are just as important as coding problems.
+Question	Interview-ready answer
+ArrayList vs LinkedList?	ArrayList offers fast indexed access; LinkedList supports efficient insertion/removal at a known node, but locating that node is generally \(O(n)\).
+HashSet vs TreeSet?	HashSet provides average \(O(1)\) basic operations; TreeSet maintains sorted order with \(O(\log n)\) basic operations.
+HashMap vs Hashtable?	HashMap is unsynchronized and permits one null key; Hashtable is legacy and synchronized, and does not permit null keys or values.
+HashMap vs LinkedHashMap?	LinkedHashMap maintains encounter order, normally insertion order, while HashMap does not guarantee iteration order.
+Comparable vs Comparator?	Comparable defines natural ordering in the class; Comparator defines an external or alternative ordering.
+Iterator vs ListIterator?	Iterator traverses forward; ListIterator supports forward/backward traversal and list modifications.
+Fail-fast iterator?	Many standard collection iterators detect structural modifications made outside the iterator and may throw ConcurrentModificationException. This is best-effort, not a thread-safety guarantee.
+Queue vs Deque?	Queue represents elements waiting for processing; Deque supports insertion and removal at both ends.
+
+
+4. Practice these next — harder interview problems
+Try solving these without looking up the solution first.
+1. Find the kth-largest element in a list
+
+Medium · PriorityQueue
+
+Hint
+
+
+2. Find the frequency of each word in a sentence
+
+Easy · HashMap
+
+Hint
+
+
+3. Group employees by department
+
+Medium · groupingBy
+
+Hint
+
+
+4. Find the intersection of two lists, including duplicate counts
+
+Medium · HashMap
+
+Hint
+
+
+5. Implement an LRU cache
+
+Hard · LinkedHashMap
+
+Hint
+
+
+6. Find the longest consecutive sequence in an integer list
+
+Hard · HashSet
+
+Hint
+
+
+7. Sort employees by salary, then by name
+
+Medium · Comparator
+
+Hint
+
+
+8. Find the first repeated element in a list
+
+Easy · HashSet
+
+Hint
+
+
+Interview preparation tip: Don't memorize only the code. For each problem, explain why you chose the collection, its average time complexity, how it handles duplicates and ordering, and what happens with empty input or null values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+witohut more inbuilt pls
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here are Java Collections interview coding questions solved without using advanced built-in methods like Streams, Collections.sort(), removeAll(), retainAll(), or getOrDefault(). The logic is implemented using loops and basic collection operations.
+1. Remove duplicates from a List
+Input: [1, 2, 3, 2, 4, 1]
+
+Output: [1, 2, 3, 4]
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            Arrays.asList(1, 2, 3, 2, 4, 1);
+
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            boolean found = false;
+
+            for (int j = 0; j < result.size(); j++) {
+                if (list.get(i).equals(result.get(j))) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                result.add(list.get(i));
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+
+
+Logic: Check each element against the elements already added to the result.
+
+Time complexity: \(O(n^2)\).
+2. Find duplicate elements
+Input: [10, 20, 30, 20, 10, 40]
+
+Output: 10 20
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            Arrays.asList(10, 20, 30, 20, 10, 40);
+
+        for (int i = 0; i < list.size(); i++) {
+            boolean alreadyPrinted = false;
+
+            for (int k = 0; k < i; k++) {
+                if (list.get(i).equals(list.get(k))) {
+                    alreadyPrinted = true;
+                    break;
+                }
+            }
+
+            if (alreadyPrinted) {
+                continue;
+            }
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
+                    System.out.println(list.get(i));
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+Logic: Check whether an element appears earlier. If not, search for another occurrence later.
+3. Count the frequency of each element
+Input: [1, 2, 2, 3, 1, 2]
+
+Output:
+1 = 2
+2 = 3
+3 = 1
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            Arrays.asList(1, 2, 2, 3, 1, 2);
+
+        boolean[] visited = new boolean[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            if (visited[i]) {
+                continue;
+            }
+
+            int count = 1;
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
+                    count++;
+                    visited[j] = true;
+                }
+            }
+
+            System.out.println(list.get(i) + " = " + count);
+        }
+    }
+}
+
+
+Logic: Count matching elements and mark them as visited to avoid counting them again.
+4. Find the second-highest number
+Input: [10, 50, 30, 50, 40]
+
+Output: 40
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            Arrays.asList(10, 50, 30, 50, 40);
+
+        int highest = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+
+        for (int i = 0; i < list.size(); i++) {
+            int n = list.get(i);
+
+            if (n > highest) {
+                second = highest;
+                highest = n;
+            } else if (n > second && n < highest) {
+                second = n;
+            }
+        }
+
+        if (second == Integer.MIN_VALUE) {
+            System.out.println("No second-highest value");
+        } else {
+            System.out.println(second);
+        }
+    }
+}
+
+
+Logic: Maintain the largest and second-largest distinct values in one pass.
+
+Time complexity: \(O(n)\).
+
+Note: This version uses Integer.MIN_VALUE as a sentinel, so it cannot distinguish every possible input correctly when the second-highest value itself is Integer.MIN_VALUE. A separate boolean flag or nullable Integer can handle that edge case.
+5. Find the maximum and minimum numbers
+Input: [45, 12, 89, 3, 67]
+
+Output:
+Maximum = 89
+Minimum = 3
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            Arrays.asList(45, 12, 89, 3, 67);
+
+        int max = list.get(0);
+        int min = list.get(0);
+
+        for (int i = 1; i < list.size(); i++) {
+            int n = list.get(i);
+
+            if (n > max) {
+                max = n;
+            }
+
+            if (n < min) {
+                min = n;
+            }
+        }
+
+        System.out.println("Maximum = " + max);
+        System.out.println("Minimum = " + min);
+    }
+}
+
+
+6. Sort a List in ascending order without built-in sorting
+Input: [5, 2, 8, 1, 3]
+
+Output: [1, 2, 3, 5, 8]
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            new ArrayList<>(Arrays.asList(5, 2, 8, 1, 3));
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = 0; j < list.size() - 1 - i; j++) {
+                if (list.get(j) > list.get(j + 1)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                }
+            }
+        }
+
+        System.out.println(list);
+    }
+}
+
+
+Logic: Bubble sort swaps adjacent elements whenever they are in the wrong order.
+
+Time complexity: \(O(n^2)\).
+7. Reverse a List without Collections.reverse()
+Input: [10, 20, 30, 40, 50]
+
+Output: [50, 40, 30, 20, 10]
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list =
+            new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50));
+
+        int left = 0;
+        int right = list.size() - 1;
+
+        while (left < right) {
+            int temp = list.get(left);
+
+            list.set(left, list.get(right));
+            list.set(right, temp);
+
+            left++;
+            right--;
+        }
+
+        System.out.println(list);
+    }
+}
+
+
+Logic: Swap the first and last elements, then move inward.
+
+Time complexity: \(O(n)\).
+8. Find common elements between two Lists
+Input:
+List 1 = [1, 2, 3, 4, 5]
+List 2 = [3, 4, 5, 6, 7]
+
+
+Output: 3 4 5
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> a =
+            Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> b =
+            Arrays.asList(3, 4, 5, 6, 7);
+
+        for (int i = 0; i < a.size(); i++) {
+            boolean found = false;
+
+            for (int j = 0; j < b.size(); j++) {
+                if (a.get(i).equals(b.get(j))) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                System.out.println(a.get(i));
+            }
+        }
+    }
+}
+
+
+This prints an element once for each occurrence in the first list that exists in the second list. If the first list contains repeated values, the output can contain duplicates.
+
+More interview questions to practise
+No.	Coding question	Main concept
+9	Find the first non-repeating character	String, loops
+10	Find the first repeating element	List traversal
+11	Merge two lists without duplicates	List
+12	Find the third-largest distinct number	List traversal
+13	Separate even and odd numbers	List
+14	Move all zeros to the end	List, swapping
+15	Check whether two lists are equal	List comparison
+16	Find missing numbers in a sequence	List, loops
+17	Rotate a list left or right by k positions	List
+18	Sort a list of strings by length	String, loops
+
+The examples above avoid advanced collection utilities. They still use basic operations such as size(), get(), add(), set(), and Arrays.asList(), which are normal foundations of Java Collections.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+March-26 Test Paper.pdfPDF
+give all answer at once simmple easy
+
+
+
+
+
+
+
+
+
+
+
+
+Worked for 17s
+Interpreted the pattern
+
+
+
+
+
+
+
+
+
+
+I'll give you all 6 Java machine-test answers in one place, using simple logic, user input, comments, and no advanced built-in methods, following your uploaded test paper. March-26 Test Paper.pdf
+
+
+Each program is separate, so run them one at a time. The code uses basic Java operations and loops instead of Streams or predefined sorting/reversing logic.
+Q1. Print the alphabet pattern
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter odd size (e.g. 9): ");
+        int n = sc.nextInt();
+
+        // Pattern works with odd sizes
+        if (n < 1 || n % 2 == 0 || n > 51) {
+            System.out.println("Enter an odd number from 1 to 51");
+            return;
+        }
+
+        int mid = n / 2;
+
+        for (int i = 0; i < n; i++) {
+            int level = i <= mid ? i : n - 1 - i;
+
+            for (int j = 0; j < n; j++) {
+                // Print left and right alphabet positions
+                if (j == 0 || j == level ||
+                    j == n - 1 - level) {
+                    char ch = (char) ('A' + level);
+                    System.out.print(ch + " ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+
+Note: The pattern in your paper has a specific diamond-like arrangement. This code illustrates the outer alphabet pattern; exact spacing and the middle row may need adjustment to match the printed pattern precisely.
+Q2. Find all contiguous subarrays whose sum equals the target
+Example: array [1, 2, 3, -2, 5, -3, 2], target 5.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter target: ");
+        int target = sc.nextInt();
+
+        // Try every possible starting position
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+
+            for (int j = i; j < n; j++) {
+                sum += arr[j];
+
+                if (sum == target) {
+                    // Print the matching subarray
+                    System.out.print("[");
+                    for (int k = i; k <= j; k++) {
+                        System.out.print(arr[k]);
+                        if (k < j) {
+                            System.out.print(", ");
+                        }
+                    }
+                    System.out.println("]");
+                }
+            }
+        }
+    }
+}
+
+
+Logic: Start at each index, keep adding the next element, and print whenever the sum equals the target. This works with positive, negative, and zero values.
+
+Time complexity: \(O(n^2)\), excluding the cost of printing results.
+Q3. Find the longest contiguous palindromic substring
+Example: forgeeksskeegfor
+
+Output: geeksskeeg
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        int start = 0;
+        int maxLength = 0;
+
+        // Try every character as the center
+        for (int i = 0; i < str.length(); i++) {
+
+            // Odd-length palindrome
+            int left = i;
+            int right = i;
+
+            while (left >= 0 && right < str.length()
+                    && str.charAt(left) == str.charAt(right)) {
+                left--;
+                right++;
+            }
+
+            int length = right - left - 1;
+
+            if (length > maxLength) {
+                maxLength = length;
+                start = left + 1;
+            }
+
+            // Even-length palindrome
+            left = i;
+            right = i + 1;
+
+            while (left >= 0 && right < str.length()
+                    && str.charAt(left) == str.charAt(right)) {
+                left--;
+                right++;
+            }
+
+            length = right - left - 1;
+
+            if (length > maxLength) {
+                maxLength = length;
+                start = left + 1;
+            }
+        }
+
+        // Print the longest palindrome manually
+        for (int i = start; i < start + maxLength; i++) {
+            System.out.print(str.charAt(i));
+        }
+
+        System.out.println();
+    }
+}
+
+
+Logic: Expand left and right from each possible center while characters match. Track the longest palindrome found.
+Q4. Group anagrams using a Map without sorting
+Example input: eat tea tan ate nat bat
+
+Output: [[eat, tea, ate], [tan, nat], [bat]]
+
+This solution assumes lowercase English letters (a–z).
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of words: ");
+        int n = sc.nextInt();
+
+        String[] arr = new String[n];
+
+        System.out.println("Enter words in lowercase:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.next();
+        }
+
+        Map<String, ArrayList<String>> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            int[] count = new int[26];
+
+            // Count each letter
+            for (int j = 0; j < arr[i].length(); j++) {
+                char ch = arr[i].charAt(j);
+                count[ch - 'a']++;
+            }
+
+            // Build a key from the letter counts
+            String key = "";
+
+            for (int j = 0; j < 26; j++) {
+                key = key + count[j] + "#";
+            }
+
+            // Add the word to its anagram group
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<String>());
+            }
+
+            map.get(key).add(arr[i]);
+        }
+
+        System.out.println(map.values());
+    }
+}
+
+
+Logic: Anagrams have identical letter frequencies. For example, eat and tea produce the same key because they contain the same letters with the same counts.
+Q5. Find the maximum-sum contiguous subarray in O(n)
+Example: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+Output:
+Maximum Sum: 6
+Subarray: [4, -1, 2, 1]
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter list size: ");
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("List must not be empty");
+            return;
+        }
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt());
+        }
+
+        // Kadane's algorithm
+        int currentSum = list.get(0);
+        int maxSum = list.get(0);
+
+        int start = 0;
+        int end = 0;
+        int tempStart = 0;
+
+        for (int i = 1; i < n; i++) {
+            int value = list.get(i);
+
+            if (currentSum + value < value) {
+                currentSum = value;
+                tempStart = i;
+            } else {
+                currentSum = currentSum + value;
+            }
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+                start = tempStart;
+                end = i;
+            }
+        }
+
+        System.out.println("Maximum Sum: " + maxSum);
+        System.out.print("Subarray: [");
+
+        for (int i = start; i <= end; i++) {
+            System.out.print(list.get(i));
+
+            if (i < end) {
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println("]");
+    }
+}
+
+
+Logic: At each element, decide whether to extend the current subarray or start a new one. Keep track of the maximum sum and its starting and ending indices.
+- Time complexity: \(O(n)\)
+- Space complexity: \(O(n)\) for the input list; the algorithm itself uses \(O(1)\) extra space.
+- Handles all-negative input correctly.
+Q6. Sort employees by salary, name, and ID
+Requirements:
+1. Salary in descending order.
+2. If salary is equal, name in ascending order.
+3. If salary and name are equal, ID in ascending order.
+4. Implement Comparable<Employee> and use Comparator<Employee>.
+import java.util.*;
+
+class Employee implements Comparable<Employee> {
+    int id;
+    String name;
+    String department;
+    double salary;
+
+    Employee(int id, String name, String department, double salary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    // Comparable: natural ordering by employee ID
+    public int compareTo(Employee e) {
+        if (this.id < e.id) {
+            return -1;
+        } else if (this.id > e.id) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public String toString() {
+        return id + " " + name + " " + department + " " + salary;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Employee> list = new ArrayList<>();
+
+        System.out.print("Enter number of employees: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        // Take employee details from user
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter ID, name, department, salary:");
+
+            int id = sc.nextInt();
+            String name = sc.next();
+            String department = sc.next();
+            double salary = sc.nextDouble();
+
+            list.add(new Employee(id, name, department, salary));
+        }
+
+        System.out.println("\nBefore sorting:");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        // Comparator: salary descending, name ascending, ID ascending
+        Comparator<Employee> comp = new Comparator<Employee>() {
+            public int compare(Employee a, Employee b) {
+
+                if (a.salary < b.salary) {
+                    return 1;
+                }
+                if (a.salary > b.salary) {
+                    return -1;
+                }
+
+                int nameResult = a.name.compareTo(b.name);
+
+                if (nameResult != 0) {
+                    return nameResult;
+                }
+
+                return a.compareTo(b);
+            }
+        };
