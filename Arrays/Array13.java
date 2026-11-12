@@ -1,3 +1,4 @@
+import java.util.*;
 class Array13
 {
 	public static void main(String[]args)
@@ -8,7 +9,7 @@ class Array13
 		{
 			if(map.containsKey(arr[i]))
 			{
-				map.put(arr[i],map.get(i)+1);
+				map.put(arr[i],map.get(arr[i])+1);
 			}
 			else
 			{
