@@ -1,14 +1,20 @@
-interface ABC
+class Mythread extends Thread
 {
-	int getSquare(int no);
-	
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("I is : "+ i);
+			Thread.sleep(1000);
+		}
+	}
 }
+
 class Qs3
 {
 	public static void main(String[]args)
 	{
-	ABC a=(int no)->no*no;
-    int result=a.getSquare(5);
-	System.out.println("Square is : "+ result);
-	}	
+		Mythread my=new Mythread();
+		my.start();
 	}
+}
