@@ -41,6 +41,13 @@ class Qs32
 		al.add(new Employee(3,"tai",50000));
 		al.add(new Employee(4,"aai",80000));
 		al.add(new Employee(5,"bhai",70000));
+		Consumer<Employee>c=new Consumer<>()
+		{
+			public void accept(Employee e)
+			{
+				System.out.println(e.getId()+" "+
+			}
+		}
 		
 	}
 }
